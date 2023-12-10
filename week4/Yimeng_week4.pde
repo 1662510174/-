@@ -19,8 +19,8 @@ void setup() {
   // 读取每一帧特定位置的像素
   for (int i = 0; i < num; i++) {
     for (int e = 0; e * num < w; e++) {
-      x = e * num + i;
       int d = 1;//设置每一次读取的像素带宽度
+      x = e * num + i*d;
       croppedImage.copy(images[i], x, y, d, h, x, y, d, h);
     }
   }
