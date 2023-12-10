@@ -8,17 +8,15 @@ int num = 6;//帧数
 
 void setup() {
   size(240, 240);
-  images = new PImage[num];
+  images = new PImage[num];  // 加载图像并设置到数组中
 
-  // 加载图像并设置到数组中
   for (int i = 0; i < num; i++) {
     images[i] = loadImage("海獭旋转_000" + i + ".png");
   }
 
-  // 创建一个新的图像对象
-  croppedImage = createImage(w, h, RGB);
+  croppedImage = createImage(w, h, RGB);  // 创建一个新的图像对象
 
-  // 在新图像中逐一遍历每个像素并设置
+  // 读取每一帧特定位置的像素
   for (int i = 0; i < num; i++) {
     for (int e = 0; e * num < w; e++) {
       x = e * num + i;
@@ -33,3 +31,4 @@ void draw() {
   background(255);
   image(croppedImage, 0, 0);
 }
+
